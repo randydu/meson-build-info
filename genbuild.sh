@@ -34,8 +34,13 @@ fi
 # only update build.h if necessary
 if [ "$INFO" != "$NEWINFO" ]; then
     echo "Generate new build-info file => " "$FILE"
+    
     echo "$NEWINFO" >"$FILE"
+    echo "$NEWINFO"
+
     echo "#define BUILD_DATE \"$TIME\"" >>"$FILE"
+    echo "#define BUILD_DATE \"$TIME\"" 
+
 else
     echo "no new build-info"
 fi
