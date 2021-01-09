@@ -5,7 +5,7 @@ IF "%1"=="" (
     EXIT 1
 )
 
-::SETLOCAL ENABLEEXTENSIONS
+SETLOCAL ENABLEEXTENSIONS
 
 SET FILE=%1
 
@@ -46,4 +46,4 @@ if NOT "%OLDINFO%" == "%REPO_DESC%" (
 
 ) ELSE ( echo "no new build-info")
 
-::ENDLOCAL
+ENDLOCAL
