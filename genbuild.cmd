@@ -10,7 +10,8 @@ SETLOCAL ENABLEEXTENSIONS
 SET FILE=%1
 
 IF EXIST %1% (
-    FOR /f "tokens=3 skip=1" %%i in (build.h) DO SET OLDINFO=%%~i
+    :: extract previous git decription from second line, field 3.
+    FOR /f "tokens=3 skip=1" %%i in (%~1) DO SET OLDINFO=%%~i
 )
 
 IF NOT "%2" == "" (
