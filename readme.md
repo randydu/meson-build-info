@@ -1,17 +1,15 @@
-Build-Info
-===========
+# Build-Info
 
-Auto-generate build version and timestamp from local GIT repository
+Auto-generate build version and timestamp from local GIT repository.
 
 
-Output
-------
+## Output:
 
 meson.project_build_dir()/build.h
 
 
 
-ex:
+Example:
 
 ```c
 // ${build_dir}/subprojects/build-info/build.h
@@ -20,22 +18,22 @@ ex:
 #define BUILD_DATE "2021-01-05 17:20:40 -0800"
 ```
 
-Usage
-------
+## Usage
 
 
-in meson.build:
+* Step 1: copy "build-info.wrap" to the "subprojects" folder of your main project;
+
+* Step 2: in the main project's meson.build:
 
 ```
 # import
 
-buildinfo_dep = subproject('build-info').get_variable('buildinfo_dep')
+buildinfo_dep = dependency('build-info')
 
 # use
 srcs = ['main.c', ...]
 
 executable('test', srcs, dependencies: [buildinfo_dep, ...])
-
 ```
 
 in main.c:
