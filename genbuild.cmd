@@ -21,13 +21,9 @@ IF NOT "%2" == "" (
     SET gitdir=%cd%
 )
 
-IF EXIST .git (
-    git diff >NUL 2>&1
-    FOR /f %%i in ('git describe --dirty') DO SET REPO_DESC=%%i
-    FOR /f %%j in ('git log -n 1 --format^=%%ci') DO SET REPO_TIME=%%j
-) ELSE (
-    echo %gitdir% must be the root of git repository!
-)
+git diff >NUL 2>&1
+FOR /f %%i in ('git describe --dirty') DO SET REPO_DESC=%%i
+FOR /f %%j in ('git log -n 1 --format^=%%ci') DO SET REPO_TIME=%%j
 
 IF NOT "%REPO_DESC%" == "" (
     SET NEWINFO=#define BUILD_DESC "%REPO_DESC%"
