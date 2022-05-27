@@ -22,7 +22,7 @@ IF NOT "%2" == "" (
 )
 
 git diff >NUL 2>&1
-FOR /f %%i in ('git describe --dirty') DO SET REPO_DESC=%%i
+FOR /f %%i in ('git describe --tags --dirty') DO SET REPO_DESC=%%i
 FOR /f %%j in ('git log -n 1 --format^=%%ci') DO SET REPO_TIME=%%j
 
 IF NOT "%REPO_DESC%" == "" (
