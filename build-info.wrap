@@ -2,7 +2,7 @@
 
 directory = build-info
 url=https://github.com/randydu/meson-build-info.git
-revision = v0.2.3
+revision = v0.2.4
 
 [provide]
 build-info = buildinfo_dep
